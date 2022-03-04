@@ -1,2 +1,10 @@
 .DS_Store
+
 .vscode/
+
+# Tex
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
