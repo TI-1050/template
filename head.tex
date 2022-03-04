@@ -1,0 +1,113 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{ctex}  % 支持中文
+\usepackage{graphicx} % 插入图片宏包
+\usepackage{listingsutf8} %插入代码段
+\usepackage{color} %颜色
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{CJK}
+\usepackage{CJKnumb}
+\usepackage{tikz}
+\usepackage{txfonts}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{pifont}
+\usepackage{cases}
+\usepackage{fontspec} %字体
+\usepackage{courier} %字体
+\usepackage{float}
+\usepackage{gensymb}
+\usepackage[CJKbookmarks=true]{hyperref} % 目录与章节链接
+\hypersetup{hidelinks} % 取消链接方框
+%\setmonofont{Consolas} %设置全局字体
+\setmonofont{Courier}  %mac os  字体
+\usepackage{pdflscape}
+\usepackage{multicol}
+
+%%%%%%%%%%% CJK下设置中文字体 %%%%%%%%%%%%%
+\newcommand{\song}{\CJKfamily{song}}    % 宋体   (Windows自带simsun.ttf)
+\newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体 (Windows自带simfs.ttf)
+\newcommand{\kai}{\CJKfamily{kai}}      % 楷体   (Windows自带simkai.ttf)
+\newcommand{\hei}{\CJKfamily{hei}}      % 黑体   (Windows自带simhei.ttf)
+\newcommand{\li}{\CJKfamily{li}}        % 隶书   (Windows自带simli.ttf)
+\usepackage{geometry} % 设置页边距的包
+\usepackage{titlesec} %设置页眉页脚的包
+\geometry{left = 2cm, right = 2cm, top = 2.5cm, bottom = 2.5cm}  % 设置页边距
+\usepackage{lastpage}%获得总页数
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%%%%%%%%%%%  设置字体大小 %%%%%%%%%%%%%
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}
+
+\setlength{\parindent}{2em}                 % 首行两个汉字的缩进量
+\setlength{\parskip}{1pt plus1pt minus1pt} % 段落之间的竖直距离
+\renewcommand{\baselinestretch}{1.0}        % 定义行距
+\setlength{\abovedisplayskip}{1pt plus1pt minus1pt}     %公式前的距离
+\setlength{\belowdisplayskip}{1pt plus1pt minus1pt}     %公式后面的距离
+\setlength{\arraycolsep}{2pt}   %在一个array中列之间的空白长度, 因为原来的太宽了
+
+
+%\setlength{\parindent}{2em}                 % 首行两个汉字的缩进量
+%\setlength{\parskip}{3pt plus1pt minus1pt} % 段落之间的竖直距离
+%\renewcommand{\baselinestretch}{1.2}        % 定义行距
+%\setlength{\abovedisplayskip}{2pt plus1pt minus1pt}     %公式前的距离
+%\setlength{\belowdisplayskip}{6pt plus1pt minus1pt}     %公式后面的距离
+%\setlength{\arraycolsep}{2pt}   %在一个array中列之间的空白长度, 因为原来的太宽了
+
+\lstset{
+		columns=fixed,       
+		numbers=left,                                        % 在左侧显示行号
+		frame=leftline,                                          % 行号与代码之间显示一根竖线
+		breaklines = true,                 % 代码过长自动换行
+		tabsize = 4,
+		backgroundcolor=\color{white},            % 设定背景颜色
+		numberstyle=\xiaosihao\color{black},                       % 设定行号格式
+%		keywordstyle=\wuhao\color{black},                 % 设定关键字颜色
+		basicstyle = \ttfamily\wuhao\color{black},       % 设置基本字体格式
+%		commentstyle=\ttfamily\wuhao\it\color{dkgreen},                % 设置代码注释的格式\label{key}
+%		stringstyle=\rmfamily\slshape\color{red},   % 设置字符串格式
+		showstringspaces=false,                              % 不显示字符串中的空格
+		language=c++,                                        % 设置语言 
+		morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,  % 增加keywords
+		    reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
+		    typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
+		    dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
+		    char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
+		    void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
+		    const,false,private,this,while,constexpr,float,protected,thread_local,
+		    const_cast,for,public,throw,std, ll},
+		    emph={map,set,multimap,multiset,unordered_map,unordered_set,
+		    unordered_multiset,unordered_multimap,vector,string,list,deque,
+		    array,stack,forwared_list,iostream,memory,shared_ptr,unique_ptr,
+		    random,bitset,ostream,istream,cout,cin,endl,move,default_random_engine,
+		    uniform_int_distribution,iterator,algorithm,functional,bing,numeric,vector,},
+}
+
+
+%以下命令中L--左侧 R--右侧 C--中间 O--奇数页 E--偶数页
+\fancyfoot[CO,RE]{}%奇数页中间，偶数页右侧页脚为空
+\fancyfoot[LO,RE]{TI1050}%奇数页左侧，偶数页中间页脚为空
+\fancyfoot[RO,LE]{\thepage\ of
+\pageref{LastPage}}%奇数页右侧，偶数页左侧显示 当前页 of 总页数
+\renewcommand{\headrulewidth}{0.5pt}%改为0pt即可去掉页眉下面的横线
+\renewcommand{\footrulewidth}{0.5pt}%改为0pt即可去掉页脚上面的横线
+
+
+\newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
+    circle (.5em) node {\makebox[1em][c]{\small #1}};}}
